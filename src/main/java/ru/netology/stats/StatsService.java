@@ -12,15 +12,10 @@ public class StatsService {
     }
 
     public long getAverageSales(int[] sales) {
+        long sumSales = getSumSales(sales);
         long averageSales = 0;
+        averageSales = sumSales / sales.length;
 
-        if (sales.length > 0) {
-            long sum = 0;
-            for (int i = 0; i < sales.length; i++) {
-                sum += sales[i];
-                averageSales = sum / sales.length;
-            }
-        }
 
         return averageSales;
     }
@@ -50,16 +45,8 @@ public class StatsService {
     }
 
     public int getQuantityMonthLessAverageSales(int[] sales) {
-        long averageSales = 0;
+        long averageSales = getAverageSales(sales);
 
-
-        if (sales.length > 0) {
-            long sum = 0;
-            for (int i = 0; i < sales.length; i++) {
-                sum += sales[i];
-                averageSales = sum / sales.length;
-            }
-        }
 
         int quantityMonthLessAverageSales = 0;
         for (int i = 0; i < sales.length; i++) {
@@ -71,16 +58,7 @@ public class StatsService {
     }
 
     public int getQuantityMonthMoreAverageSales(int[] sales) {
-        long averageSales = 0;
-
-
-        if (sales.length > 0) {
-            long sum = 0;
-            for (int i = 0; i < sales.length; i++) {
-                sum += sales[i];
-                averageSales = sum / sales.length;
-            }
-        }
+        long averageSales = getAverageSales(sales);
 
         int quantityMonthMoreAverageSales = 0;
         for (int i = 0; i < sales.length; i++) {

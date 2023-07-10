@@ -5,13 +5,13 @@ import org.junit.jupiter.api.Test;
 
 public class StatsServiceTest {
     @Test
-    public void shouldSunSale() {
+    public void shouldSumSale() {
         StatsService service = new StatsService();
 
         int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
         int expectedSumSales = 180;
-        int actualSumSales = Math.toIntExact(service.getSumSales(sales));
+        long actualSumSales = service.getSumSales(sales);
 
         Assertions.assertEquals(expectedSumSales, actualSumSales);
 
@@ -24,7 +24,7 @@ public class StatsServiceTest {
         int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
         int expectedSumSales = 15;
-        int actualAverageSales = Math.toIntExact(service.getAverageSales(sales));
+        long actualAverageSales = service.getAverageSales(sales);
 
         Assertions.assertEquals(expectedSumSales, actualAverageSales);
     }
@@ -36,7 +36,7 @@ public class StatsServiceTest {
         int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
         int expectedMaxMonth = 8;
-        int actualMaxMonth = Math.toIntExact(service.maxSales(sales));
+        int actualMaxMonth = service.maxSales(sales);
 
         Assertions.assertEquals(expectedMaxMonth, actualMaxMonth);
     }
@@ -48,7 +48,7 @@ public class StatsServiceTest {
         int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
         int expectedMinMonth = 9;
-        int actualMinMonth = Math.toIntExact(service.minSales(sales));
+        int actualMinMonth = service.minSales(sales);
 
         Assertions.assertEquals(expectedMinMonth, actualMinMonth);
     }
